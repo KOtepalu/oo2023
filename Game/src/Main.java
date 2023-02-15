@@ -13,33 +13,52 @@ public class Main {
         // short lyhikeNumber = 312;
         // long pikkNumber = 312321331;
 
-        int playerXCoordinate =  3; // täisarvuline number
-        int platerYCoordinate = 3;
-        int dragonXCoordinate = 6;
-        int dragonYCoordinate = 2;
-        int orcXCoordinate = 5;
-        int orcYCoordinate = 1;
+        int worldWidth = 10;
+        int worldHeight = 5;
+
+        int playerXCoordinate = getRandomCoordinate(worldWidth); // täisarvuline number
+        int platerYCoordinate = getRandomCoordinate(worldHeight); // castimine ehk teisendamine ühest tüübist teise
+        char playerSymbol = 'X';
+        int dragonXCoordinate = getRandomCoordinate(worldWidth);
+        int dragonYCoordinate = getRandomCoordinate(worldHeight);
+        char dragonSymbol = 'D';
+        int orcXCoordinate = getRandomCoordinate(worldWidth);
+        int orcYCoordinate = getRandomCoordinate(worldHeight);
+        char orcSymbol = 'O';
 
         // algväärtus kuni iga tsükkel
-        for (int y= 0; y < 5; y++) {
+        for (int y= 0; y < worldHeight; y++) {
             System.out.println();
-            for (int x = 0; x < 10; x++) {
-                if (y == 0 || y == 4) {
+            for (int x = 0; x < worldWidth; x++) {
+                if (y == 0 || y == worldHeight-1) {
                     System.out.print("-");
-                } else if (x == 0 || x == 9) {
+                } else if (x == 0 || x == worldWidth-1) {
                     System.out.print("|");
                 } else {
-                    if (playerXCoordinate == x && platerYCoordinate == y) {
-                        System.out.print("X");
-                    } else if (dragonXCoordinate == x && dragonYCoordinate == y){
-                        System.out.print("D");
-                    } else if (orcXCoordinate == x && orcYCoordinate == y) {
-                        System.out.print("O");
-                    } else {
-                        System.out.print(" ");
-                    }
+                    // option + command + m
+                    printCharacters(playerXCoordinate, platerYCoordinate, playerSymbol,
+                            dragonXCoordinate, dragonYCoordinate, dragonSymbol,
+                            orcXCoordinate, orcYCoordinate, orcSymbol, y, x);
                 }
             }
+        }
+    }
+
+    private static int getRandomCoordinate(int worldDimension) {
+        return (int) (Math.random() * (worldDimension - 2) + 1);
+    }
+
+    private static void printCharacters(int playerXCoordinate, int platerYCoordinate, char playerSymbol,
+                                        int dragonXCoordinate, int dragonYCoordinate, char dragonSymbol,
+                                        int orcXCoordinate, int orcYCoordinate, char orcSymbol, int mapY, int mapX) {
+        if (playerXCoordinate == mapX && platerYCoordinate == mapY) {
+            System.out.print(playerSymbol);
+        } else if (dragonXCoordinate == mapX && dragonYCoordinate == mapY){
+            System.out.print(dragonSymbol);
+        } else if (orcXCoordinate == mapX && orcYCoordinate == mapY) {
+            System.out.print(orcSymbol);
+        } else {
+            System.out.print(" ");
         }
     }
 }
