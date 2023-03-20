@@ -9,5 +9,4 @@ public class Main {
         String sonum2 = broneering2.muudaBroneeringut("Karl3","21436587","10.04.23", "18:30");
         System.out.println(sonum2);
     }
-    //KODUS: 1 klass, constructor, 2+ muutujat, 2+ funktsiooni, 2+ väljakutset mainis.
 }
