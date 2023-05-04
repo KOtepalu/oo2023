@@ -95,7 +95,7 @@ public class TellimusController {
     @PostMapping("lisa-tellimus4")
     public List<Tellimus> lisaToode4(
             @RequestBody Tellimus tellimus) {
-        Isik isik =isikController.isikud.get(tellimus.getTellija().getId());
+        Isik isik = isikController.isikud.get(tellimus.getTellija().getId());
 
         List<Toode> tellitudTooted = new ArrayList<>();
         for (Toode t: tellimus.getTooted()) {
