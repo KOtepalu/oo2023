@@ -39,8 +39,8 @@ public class DoctorsVisitController {
         return doctorsVisits;
     }
 
-    @PostMapping("add-booking")
-    public List<DoctorsVisit> lisaToode4(
+    @PostMapping("add-visit")
+    public List<DoctorsVisit> addVisit(
             @RequestBody DoctorsVisit doctorsVisit) {
         Owner owner = ownerController.owners.get(doctorsVisit.getOmanik().getId());
 

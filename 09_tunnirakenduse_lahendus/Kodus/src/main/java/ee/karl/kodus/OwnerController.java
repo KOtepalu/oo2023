@@ -17,7 +17,7 @@ public class OwnerController {
             new Owner(5, "Monica","Kuu", new Date())
     ));
 
-    @GetMapping("isikud")
+    @GetMapping("owners")
     public List<Owner> getOwners() {
         return getOwners();
     }
